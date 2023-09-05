@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+  sircapcev_mongo:
+    image: mongo:4.4.14
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=Albertolem
+      - MONGO_INITDB_ROOT_PASSWORD=lemxona
+    volumes:
+      - mongo-data:/data/db
+
+  sircapcev_api:
+    build:
+      context: . # Ruta al directorio de Dockerfile de la API
+    ports:
+      - "8080:8080"
+    links:
+      - sircapcev_mongo
+    environment:
+      - spring.data.mongodb.host=sircapcev_mongo # Cambia a "sircapcev_mongo"
+      - spring.data.mongodb.port=27017
+      - spring.data.mongodb.database=sircapcev
+      - spring.data.mongodb.username=Albertolem
+      - spring.data.mongodb.password=lemxona
+      - file.upload-dir=/data/images # Ruta corregida para el directorio de imágenes
+      - spring.servlet.multipart.max-file-size=10MB
+      - spring.servlet.multipart.max-request-size=10MB
+      - spring.data.mongodb.authentication-database=admin
+      - spring.data.mongodb.authentication-mechanism=SCRAM-SHA-256
+      - jwt.secret=estaeslaclavesecretaparagenerarlosjsonwebtokens
+      - jwt.expiration=36000
+
+  sircapcev_web:
+    build:
+      context: ../sircapcev_WEB # Ruta al directorio de Dockerfile de la aplicación web
+    ports:
+      - "80:4200"
+    links:
+      - sircapcev_api
+    environment:
+      - apiUrl=http://sircapcev_api:8080 # Cambia a "sircapcev_api"
+
+volumes:
+  mongo-data:
