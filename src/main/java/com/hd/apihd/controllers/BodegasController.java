@@ -32,18 +32,19 @@ public class BodegasController {
     @Autowired
     BodegasService bodegasService;
 
-    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     @GetMapping
     public ResponseEntity<List<BodegasEntity>> getAll() {
         return ResponseEntity.ok(bodegasService.getAll());
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN', 'ROLE_USER')")
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     @GetMapping("/{id}")
     public ResponseEntity<BodegasEntity> getOne(@PathVariable("id") Integer id) throws ResourceNotFoundException {
         return ResponseEntity.ok(bodegasService.getOne(id));
     }
 
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     @PostMapping
     public ResponseEntity<MessageDto> save(@Valid @RequestBody BodegasDTO dto) throws AttributeException {
         BodegasEntity bodegas = bodegasService.save(dto);
@@ -51,6 +52,7 @@ public class BodegasController {
         return ResponseEntity.ok(new MessageDto(HttpStatus.OK, message));
     }
 
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     @PutMapping("/{id}")
     public ResponseEntity<MessageDto> update(@PathVariable("id") Integer id, @Valid @RequestBody BodegasDTO dto)
             throws ResourceNotFoundException, AttributeException {
@@ -58,7 +60,7 @@ public class BodegasController {
         String message = "bodegas " + bodegas.getNombre() + "Ha sido Actualizado";
         return ResponseEntity.ok(new MessageDto(HttpStatus.OK, message));
     }
-
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
     public ResponseEntity<MessageDto> delete(@PathVariable("id") Integer id) throws ResourceNotFoundException {
         BodegasEntity bodegas = bodegasService.delete(id);

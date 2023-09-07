@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,16 +34,19 @@ public class SedeController {
     @Autowired
     SedeService sedeService;
 
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     @GetMapping
     public ResponseEntity<List<SedeEntity>> getAll() {
         return ResponseEntity.ok(sedeService.getAll());
     }
 
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     @GetMapping("/{id}")
     public ResponseEntity<SedeEntity> getOne(@PathVariable("id") Integer id) throws ResourceNotFoundException {
         return ResponseEntity.ok(sedeService.getOne(id));
     }
 
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     @PostMapping
     public ResponseEntity<MessageDto> save(@Valid @RequestBody SedeDTO dto) throws AttributeException {
         SedeEntity sede = sedeService.save(dto);
@@ -50,6 +54,7 @@ public class SedeController {
         return ResponseEntity.ok(new MessageDto(HttpStatus.OK, message));
     }
 
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     @PutMapping("/{id}")
     public ResponseEntity<MessageDto> update(@PathVariable("id") Integer id, @Valid @RequestBody SedeDTO dto)
             throws ResourceNotFoundException, AttributeException {
@@ -58,6 +63,7 @@ public class SedeController {
         return ResponseEntity.ok(new MessageDto(HttpStatus.OK, message));
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
     public ResponseEntity<MessageDto> delete(@PathVariable("id") Integer id) throws ResourceNotFoundException {
         SedeEntity sede = sedeService.delete(id);

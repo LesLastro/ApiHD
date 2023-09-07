@@ -1,10 +1,10 @@
-package com.cev.sircapcev;
+package com.hd.apihd;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SircapcevApplicationTests {
+class ApihdApplicationTests {
 
 	@Test
 	void contextLoads() {
