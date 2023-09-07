@@ -20,7 +20,7 @@ public class TipoSolicitudService {
         return tipoSolicitudRepository.findAll();
     }
 
-    public TipoSolicitudEntity getOne(String id) throws ResourceNotFoundException {
+    public TipoSolicitudEntity getOne(Integer id) throws ResourceNotFoundException {
         return tipoSolicitudRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("not found"));
     }
@@ -34,7 +34,7 @@ public class TipoSolicitudService {
         return tipoSolicitudRepository.save(tipoSolicitud);
     }
 
-    public TipoSolicitudEntity update(String id, TipoSolicitudDTO dto) throws ResourceNotFoundException, AttributeException {
+    public TipoSolicitudEntity update(Integer id, TipoSolicitudDTO dto) throws ResourceNotFoundException, AttributeException {
         TipoSolicitudEntity tipoSolicitud = tipoSolicitudRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No se encontro"));
         /*if (tipoSolicitudRepository.existsByDpi(dto.getDpi()) && tipoSolicitudRepository.findByDpi(dto.getDpi()).get().getId() != id)
@@ -43,7 +43,7 @@ public class TipoSolicitudService {
         return tipoSolicitudRepository.save(tipoSolicitud);
     }
 
-    public TipoSolicitudEntity delete(String id) throws ResourceNotFoundException {
+    public TipoSolicitudEntity delete(Integer id) throws ResourceNotFoundException {
         TipoSolicitudEntity tipoSolicitud = tipoSolicitudRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No se encontro"));
         ;

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.cev.sircapcev.entity.BodegasEntity;
 
 @Repository
-public interface BodegasRepository extends JpaRepository<BodegasEntity, String> {
+public interface BodegasRepository extends JpaRepository<BodegasEntity, Integer> {
     boolean existsByNombre(String nombre);
     Optional<BodegasEntity> findByNombre(String nombre);
     

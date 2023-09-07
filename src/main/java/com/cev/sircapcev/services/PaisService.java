@@ -20,7 +20,7 @@ public class PaisService {
         return paisRepository.findAll();
     }
 
-    public PaisEntity getOne(String id) throws ResourceNotFoundException {
+    public PaisEntity getOne(Integer id) throws ResourceNotFoundException {
         return paisRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("not found"));
     }
@@ -34,7 +34,7 @@ public class PaisService {
         return paisRepository.save(pais);
     }
 
-    public PaisEntity update(String id, PaisDTO dto) throws ResourceNotFoundException, AttributeException {
+    public PaisEntity update(Integer id, PaisDTO dto) throws ResourceNotFoundException, AttributeException {
         PaisEntity pais = paisRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No se encontro"));
         /*if (paisRepository.existsByDpi(dto.getDpi()) && paisRepository.findByDpi(dto.getDpi()).get().getId() != id)
@@ -45,7 +45,7 @@ public class PaisService {
         return paisRepository.save(pais);
     }
 
-    public PaisEntity delete(String id) throws ResourceNotFoundException {
+    public PaisEntity delete(Integer id) throws ResourceNotFoundException {
         PaisEntity pais = paisRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No se encontro"));
         ;

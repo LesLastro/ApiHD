@@ -26,9 +26,11 @@ public class UserPrincipal implements UserDetails {
 
     public static UserPrincipal build(UserEntity userEntity) {
         Collection<GrantedAuthority> authorities = userEntity.getRoles().stream()
-                .map(role -> new SimpleGrantedAuthority(role.name())).collect(Collectors.toList());
-                return new UserPrincipal(userEntity.getUsername(), userEntity.getEmail(), userEntity.getPassword(), authorities);
+                .map(role -> new SimpleGrantedAuthority(role.getName()))
+                .collect(Collectors.toList());
+        return new UserPrincipal(userEntity.getUsername(), userEntity.getEmail(), userEntity.getPassword(), authorities);
     }
+    
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

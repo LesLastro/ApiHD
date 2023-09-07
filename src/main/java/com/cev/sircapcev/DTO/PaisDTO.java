@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
    // private Date fechaAsignacion;
 
 public class PaisDTO {
-    private Long id;
+    private Integer id;
     @NotBlank(message = "Ingrese un Nombre") 
     private String nombre;
     @NotBlank(message = "Ingrese Status")
@@ -26,18 +26,18 @@ public class PaisDTO {
     public PaisDTO() {
     }
 
-    public PaisDTO(Long id, String nombre, String status, Date fechacreacion) {
+    public PaisDTO(Integer id, String nombre, String status, Date fechacreacion) {
         this.id = id;
         this.nombre = nombre;
         this.status = status;
         this.fechacreacion = fechacreacion;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return this.id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

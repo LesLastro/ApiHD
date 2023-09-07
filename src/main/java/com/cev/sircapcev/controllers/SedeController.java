@@ -38,7 +38,7 @@ public class SedeController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<SedeEntity> getOne(@PathVariable("id") String id) throws ResourceNotFoundException {
+    public ResponseEntity<SedeEntity> getOne(@PathVariable("id") Integer id) throws ResourceNotFoundException {
         return ResponseEntity.ok(sedeService.getOne(id));
     }
 
@@ -50,7 +50,7 @@ public class SedeController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<MessageDto> update(@PathVariable("id") String id, @Valid @RequestBody SedeDTO dto)
+    public ResponseEntity<MessageDto> update(@PathVariable("id") Integer id, @Valid @RequestBody SedeDTO dto)
             throws ResourceNotFoundException, AttributeException {
         SedeEntity sede = sedeService.update(id, dto);
         String message = "sede " + sede.getNombre() + "Ha sido Actualizado";
@@ -58,7 +58,7 @@ public class SedeController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<MessageDto> delete(@PathVariable("id") String id) throws ResourceNotFoundException {
+    public ResponseEntity<MessageDto> delete(@PathVariable("id") Integer id) throws ResourceNotFoundException {
         SedeEntity sede = sedeService.delete(id);
         String message = "sede " + sede.getNombre() + "Ha sido Eliminado";
         return ResponseEntity.ok(new MessageDto(HttpStatus.OK, message));

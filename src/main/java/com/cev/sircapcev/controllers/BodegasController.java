@@ -38,7 +38,7 @@ public class BodegasController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<BodegasEntity> getOne(@PathVariable("id") String id) throws ResourceNotFoundException {
+    public ResponseEntity<BodegasEntity> getOne(@PathVariable("id") Integer id) throws ResourceNotFoundException {
         return ResponseEntity.ok(bodegasService.getOne(id));
     }
 
@@ -50,7 +50,7 @@ public class BodegasController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<MessageDto> update(@PathVariable("id") String id, @Valid @RequestBody BodegasDTO dto)
+    public ResponseEntity<MessageDto> update(@PathVariable("id") Integer id, @Valid @RequestBody BodegasDTO dto)
             throws ResourceNotFoundException, AttributeException {
         BodegasEntity bodegas = bodegasService.update(id, dto);
         String message = "bodegas " + bodegas.getNombre() + "Ha sido Actualizado";
@@ -58,7 +58,7 @@ public class BodegasController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<MessageDto> delete(@PathVariable("id") String id) throws ResourceNotFoundException {
+    public ResponseEntity<MessageDto> delete(@PathVariable("id") Integer id) throws ResourceNotFoundException {
         BodegasEntity bodegas = bodegasService.delete(id);
         String message = "bodegas " + bodegas.getNombre() + "Ha sido Eliminado";
         return ResponseEntity.ok(new MessageDto(HttpStatus.OK, message));

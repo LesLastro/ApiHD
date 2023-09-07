@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.cev.sircapcev.entity.CuentaEntity;
 
 @Repository
-public interface CuentaRepository extends JpaRepository<CuentaEntity, String> {
+public interface CuentaRepository extends JpaRepository<CuentaEntity, Integer> {
     boolean existsByNombre(String nombre);
     Optional<CuentaEntity> findByNombre(String nombre);
     

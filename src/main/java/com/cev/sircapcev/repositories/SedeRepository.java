@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.cev.sircapcev.entity.SedeEntity;
 
 @Repository
-public interface SedeRepository extends JpaRepository<SedeEntity, String> {
+public interface SedeRepository extends JpaRepository<SedeEntity, Integer> {
     boolean existsByNombre(String nombre);
     Optional<SedeEntity> findByNombre(String nombre);
     

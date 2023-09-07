@@ -38,7 +38,7 @@ public class TipoSolicitudController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<TipoSolicitudEntity> getOne(@PathVariable("id") String id) throws ResourceNotFoundException {
+    public ResponseEntity<TipoSolicitudEntity> getOne(@PathVariable("id") Integer id) throws ResourceNotFoundException {
         return ResponseEntity.ok(tipoSolicitudService.getOne(id));
     }
 
@@ -50,7 +50,7 @@ public class TipoSolicitudController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<MessageDto> update(@PathVariable("id") String id, @Valid @RequestBody TipoSolicitudDTO dto)
+    public ResponseEntity<MessageDto> update(@PathVariable("id") Integer id, @Valid @RequestBody TipoSolicitudDTO dto)
             throws ResourceNotFoundException, AttributeException {
         TipoSolicitudEntity tipoSolicitud = tipoSolicitudService.update(id, dto);
         String message = "tipoSolicitud " + tipoSolicitud.getNombre() + "Ha sido Actualizado";
@@ -58,7 +58,7 @@ public class TipoSolicitudController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<MessageDto> delete(@PathVariable("id") String id) throws ResourceNotFoundException {
+    public ResponseEntity<MessageDto> delete(@PathVariable("id") Integer id) throws ResourceNotFoundException {
         TipoSolicitudEntity tipoSolicitud = tipoSolicitudService.delete(id);
         String message = "tipoSolicitud " + tipoSolicitud.getNombre() + "Ha sido Eliminado";
         return ResponseEntity.ok(new MessageDto(HttpStatus.OK, message));

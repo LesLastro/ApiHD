@@ -38,7 +38,7 @@ public class EquipoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<EquipoEntity> getOne(@PathVariable("id") String id) throws ResourceNotFoundException {
+    public ResponseEntity<EquipoEntity> getOne(@PathVariable("id") Integer id) throws ResourceNotFoundException {
         return ResponseEntity.ok(equipoService.getOne(id));
     }
 
@@ -50,7 +50,7 @@ public class EquipoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<MessageDto> update(@PathVariable("id") String id, @Valid @RequestBody EquipoDTO dto)
+    public ResponseEntity<MessageDto> update(@PathVariable("id") Integer id, @Valid @RequestBody EquipoDTO dto)
             throws ResourceNotFoundException, AttributeException {
         EquipoEntity equipo = equipoService.update(id, dto);
         String message = "equipo " + equipo.getSerial() + "Ha sido Actualizado";
@@ -58,7 +58,7 @@ public class EquipoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<MessageDto> delete(@PathVariable("id") String id) throws ResourceNotFoundException {
+    public ResponseEntity<MessageDto> delete(@PathVariable("id") Integer id) throws ResourceNotFoundException {
         EquipoEntity equipo = equipoService.delete(id);
         String message = "equipo " + equipo.getSerial() + "Ha sido Eliminado";
         return ResponseEntity.ok(new MessageDto(HttpStatus.OK, message));

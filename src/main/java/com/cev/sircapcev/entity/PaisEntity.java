@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class PaisEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
     private String nombre;
     private String status;
     private Date fechacreacion;
@@ -20,18 +20,18 @@ public class PaisEntity {
     public PaisEntity() {
     }
 
-    public PaisEntity(Long id, String nombre, String status, Date fechacreacion) {
+    public PaisEntity(Integer id, String nombre, String status, Date fechacreacion) {
         this.id = id;
         this.nombre = nombre;
         this.status = status;
         this.fechacreacion = fechacreacion;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return this.id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

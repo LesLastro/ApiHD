@@ -20,7 +20,7 @@ public class CuentaService {
         return cuentaRepository.findAll();
     }
 
-    public CuentaEntity getOne(String id) throws ResourceNotFoundException {
+    public CuentaEntity getOne(Integer id) throws ResourceNotFoundException {
         return cuentaRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("not found"));
     }
@@ -34,7 +34,7 @@ public class CuentaService {
         return cuentaRepository.save(cuenta);
     }
 
-    public CuentaEntity update(String id, CuentaDTO dto) throws ResourceNotFoundException, AttributeException {
+    public CuentaEntity update(Integer id, CuentaDTO dto) throws ResourceNotFoundException, AttributeException {
         CuentaEntity cuenta = cuentaRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No se encontro"));
         /*if (cuentaRepository.existsByDpi(dto.getDpi()) && cuentaRepository.findByDpi(dto.getDpi()).get().getId() != id)
@@ -45,7 +45,7 @@ public class CuentaService {
         return cuentaRepository.save(cuenta);
     }
 
-    public CuentaEntity delete(String id) throws ResourceNotFoundException {
+    public CuentaEntity delete(Integer id) throws ResourceNotFoundException {
         CuentaEntity cuenta = cuentaRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No se encontro"));
         ;

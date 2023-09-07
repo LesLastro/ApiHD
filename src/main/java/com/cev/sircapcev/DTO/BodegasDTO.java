@@ -8,11 +8,11 @@ import javax.validation.constraints.NotNull;
 
 
 public class BodegasDTO {
-    private Long id;
+    private Integer id;
     @NotBlank(message = "Ingrese un Nombre") 
     private String nombre;
     @NotBlank(message = "Ingrese una Sede") 
-    private Long idSite;
+    private Integer idSite;
     @NotNull(message = "Ingrese Fecha de Creacion")
     private Date fechacreacion;
 
@@ -20,7 +20,7 @@ public class BodegasDTO {
     public BodegasDTO() {
     }
 
-    public BodegasDTO(Long id, String nombre, Long idSite, Date fechacreacion) {
+    public BodegasDTO(Integer id, String nombre, Integer idSite, Date fechacreacion) {
         this.id = id;
         this.nombre = nombre;
         this.idSite = idSite;
@@ -28,11 +28,11 @@ public class BodegasDTO {
     }
 
 
-    public Long getId() {
+    public Integer getId() {
         return this.id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -44,11 +44,11 @@ public class BodegasDTO {
         this.nombre = nombre;
     }
 
-    public Long getIdSite() {
+    public Integer getIdSite() {
         return this.idSite;
     }
 
-    public void setIdSite(Long idSite) {
+    public void setIdSite(Integer idSite) {
         this.idSite = idSite;
     }
 

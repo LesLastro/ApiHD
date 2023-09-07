@@ -9,11 +9,11 @@ import javax.validation.constraints.NotNull;
 
 
 public class SedeDTO {
-    private Long id;
+    private Integer id;
     @NotBlank(message = "Ingrese un Nombre") 
     private String nombre;
     @NotBlank(message = "Ingrese un Pais") 
-    private Long idPais;  
+    private Integer idPais;  
     @NotBlank(message = "Ingrese Status")
     private String status;
     @NotNull(message = "Ingrese Fecha de Creacion")
@@ -24,7 +24,7 @@ public class SedeDTO {
     }
 
 
-    public SedeDTO(Long id, String nombre, Long idPais, String status, Date creacion) {
+    public SedeDTO(Integer id, String nombre, Integer idPais, String status, Date creacion) {
         this.id = id;
         this.nombre = nombre;
         this.idPais = idPais;
@@ -32,11 +32,11 @@ public class SedeDTO {
         this.creacion = creacion;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return this.id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -48,11 +48,11 @@ public class SedeDTO {
         this.nombre = nombre;
     }
 
-    public Long getIdPais() {
+    public Integer getIdPais() {
         return this.idPais;
     }
 
-    public void setIdPais(Long idPais) {
+    public void setIdPais(Integer idPais) {
         this.idPais = idPais;
     }
 

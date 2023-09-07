@@ -38,7 +38,7 @@ public class CuentaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<CuentaEntity> getOne(@PathVariable("id") String id) throws ResourceNotFoundException {
+    public ResponseEntity<CuentaEntity> getOne(@PathVariable("id") Integer id) throws ResourceNotFoundException {
         return ResponseEntity.ok(cuentaService.getOne(id));
     }
 
@@ -50,7 +50,7 @@ public class CuentaController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<MessageDto> update(@PathVariable("id") String id, @Valid @RequestBody CuentaDTO dto)
+    public ResponseEntity<MessageDto> update(@PathVariable("id") Integer id, @Valid @RequestBody CuentaDTO dto)
             throws ResourceNotFoundException, AttributeException {
         CuentaEntity cuenta = cuentaService.update(id, dto);
         String message = "cuenta " + cuenta.getNombre() + "Ha sido Actualizado";
@@ -58,7 +58,7 @@ public class CuentaController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<MessageDto> delete(@PathVariable("id") String id) throws ResourceNotFoundException {
+    public ResponseEntity<MessageDto> delete(@PathVariable("id") Integer id) throws ResourceNotFoundException {
         CuentaEntity cuenta = cuentaService.delete(id);
         String message = "cuenta " + cuenta.getNombre() + "Ha sido Eliminado";
         return ResponseEntity.ok(new MessageDto(HttpStatus.OK, message));

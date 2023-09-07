@@ -8,19 +8,19 @@ import javax.validation.constraints.NotNull;
 
 
 public class HistorialDTO {
-    private Long id;
+    private Integer id;
     @NotBlank(message = "Ingrese una Bodega Origen") 
-    private Long idBodegaOr;
+    private Integer idBodegaOr;
     @NotBlank(message = "Ingrese una Bodega Destino") 
-    private Long idbodegaDes;
+    private Integer idbodegaDes;
     @NotBlank(message = "Ingrese su Usuario") 
-    private Long idusuario;
+    private Integer idusuario;
     @NotBlank(message = "Ingrese Tipo de Solicitud") 
-    private Long idTipoSol;
+    private Integer idTipoSol;
     @NotBlank(message = "Ingrese una Equipo") 
-    private Long idEquipo;
+    private Integer idEquipo;
     @NotBlank(message = "Ingrese una Cuenta") 
-    private Long idCuenta;
+    private Integer idCuenta;
     @NotBlank(message = "Ingrese el Estado") 
     private String estado;
     @NotBlank(message = "Ingrese Consumible") 
@@ -32,7 +32,7 @@ public class HistorialDTO {
     }
 
 
-    public HistorialDTO(Long id, Long idBodegaOr, Long idbodegaDes, Long idusuario, Long idTipoSol, Long idEquipo, Long idCuenta, String estado, String consumible, Date fechasolicitud) {
+    public HistorialDTO(Integer id, Integer idBodegaOr, Integer idbodegaDes, Integer idusuario, Integer idTipoSol, Integer idEquipo, Integer idCuenta, String estado, String consumible, Date fechasolicitud) {
         this.id = id;
         this.idBodegaOr = idBodegaOr;
         this.idbodegaDes = idbodegaDes;
@@ -46,59 +46,59 @@ public class HistorialDTO {
     }
 
 
-    public Long getId() {
+    public Integer getId() {
         return this.id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public Long getIdBodegaOr() {
+    public Integer getIdBodegaOr() {
         return this.idBodegaOr;
     }
 
-    public void setIdBodegaOr(Long idBodegaOr) {
+    public void setIdBodegaOr(Integer idBodegaOr) {
         this.idBodegaOr = idBodegaOr;
     }
 
-    public Long getIdbodegaDes() {
+    public Integer getIdbodegaDes() {
         return this.idbodegaDes;
     }
 
-    public void setIdbodegaDes(Long idbodegaDes) {
+    public void setIdbodegaDes(Integer idbodegaDes) {
         this.idbodegaDes = idbodegaDes;
     }
 
-    public Long getIdusuario() {
+    public Integer getIdusuario() {
         return this.idusuario;
     }
 
-    public void setIdusuario(Long idusuario) {
+    public void setIdusuario(Integer idusuario) {
         this.idusuario = idusuario;
     }
 
-    public Long getIdTipoSol() {
+    public Integer getIdTipoSol() {
         return this.idTipoSol;
     }
 
-    public void setIdTipoSol(Long idTipoSol) {
+    public void setIdTipoSol(Integer idTipoSol) {
         this.idTipoSol = idTipoSol;
     }
 
-    public Long getIdEquipo() {
+    public Integer getIdEquipo() {
         return this.idEquipo;
     }
 
-    public void setIdEquipo(Long idEquipo) {
+    public void setIdEquipo(Integer idEquipo) {
         this.idEquipo = idEquipo;
     }
 
-    public Long getIdCuenta() {
+    public Integer getIdCuenta() {
         return this.idCuenta;
     }
 
-    public void setIdCuenta(Long idCuenta) {
+    public void setIdCuenta(Integer idCuenta) {
         this.idCuenta = idCuenta;
     }
 

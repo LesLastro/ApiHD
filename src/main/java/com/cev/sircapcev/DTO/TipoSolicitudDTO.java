@@ -5,7 +5,7 @@ import javax.validation.constraints.NotBlank;
 
 
 public class TipoSolicitudDTO {
-    private Long id;
+    private Integer id;
     @NotBlank(message = "Ingrese un Nombre") 
     private String nombre;
     
@@ -13,16 +13,16 @@ public class TipoSolicitudDTO {
     public TipoSolicitudDTO() {
     }
 
-    public TipoSolicitudDTO(Long id, String nombre) {
+    public TipoSolicitudDTO(Integer id, String nombre) {
         this.id = id;
         this.nombre = nombre;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return this.id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

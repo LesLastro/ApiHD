@@ -20,7 +20,7 @@ public class SedeService {
         return sedeRepository.findAll();
     }
 
-    public SedeEntity getOne(String id) throws ResourceNotFoundException {
+    public SedeEntity getOne(Integer id) throws ResourceNotFoundException {
         return sedeRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("not found"));
     }
@@ -34,7 +34,7 @@ public class SedeService {
         return sedeRepository.save(sede);
     }
 
-    public SedeEntity update(String id, SedeDTO dto) throws ResourceNotFoundException, AttributeException {
+    public SedeEntity update(Integer id, SedeDTO dto) throws ResourceNotFoundException, AttributeException {
         SedeEntity sede = sedeRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No se encontro"));
 
@@ -44,7 +44,7 @@ public class SedeService {
         return sedeRepository.save(sede);
     }
 
-    public SedeEntity delete(String id) throws ResourceNotFoundException {
+    public SedeEntity delete(Integer id) throws ResourceNotFoundException {
         SedeEntity sede = sedeRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No se encontro"));
         ;

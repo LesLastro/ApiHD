@@ -20,7 +20,7 @@ public class EquipoService {
         return equipoRepository.findAll();
     }
 
-    public EquipoEntity getOne(String id) throws ResourceNotFoundException {
+    public EquipoEntity getOne(Integer id) throws ResourceNotFoundException {
         return equipoRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("not found"));
     }
@@ -34,7 +34,7 @@ public class EquipoService {
         return equipoRepository.save(equipo);
     }
 
-    public EquipoEntity update(String id, EquipoDTO dto) throws ResourceNotFoundException, AttributeException {
+    public EquipoEntity update(Integer id, EquipoDTO dto) throws ResourceNotFoundException, AttributeException {
         EquipoEntity equipo = equipoRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No se encontro"));
         /*if (equipoRepository.existsByDpi(dto.getDpi()) && equipoRepository.findByDpi(dto.getDpi()).get().getId() != id)
@@ -47,7 +47,7 @@ public class EquipoService {
         return equipoRepository.save(equipo);
     }
 
-    public EquipoEntity delete(String id) throws ResourceNotFoundException {
+    public EquipoEntity delete(Integer id) throws ResourceNotFoundException {
         EquipoEntity equipo = equipoRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No se encontro"));
         ;

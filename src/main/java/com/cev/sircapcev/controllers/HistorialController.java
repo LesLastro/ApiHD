@@ -38,7 +38,7 @@ public class HistorialController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<HistorialEntity> getOne(@PathVariable("id") String id) throws ResourceNotFoundException {
+    public ResponseEntity<HistorialEntity> getOne(@PathVariable("id") Integer id) throws ResourceNotFoundException {
         return ResponseEntity.ok(historialService.getOne(id));
     }
 
@@ -50,7 +50,7 @@ public class HistorialController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<MessageDto> update(@PathVariable("id") String id, @Valid @RequestBody HistorialDTO dto)
+    public ResponseEntity<MessageDto> update(@PathVariable("id") Integer id, @Valid @RequestBody HistorialDTO dto)
             throws ResourceNotFoundException, AttributeException {
         HistorialEntity historial = historialService.update(id, dto);
         String message = "historial " + historial.getIdbodegaOr() + "Ha sido Actualizado";
@@ -58,7 +58,7 @@ public class HistorialController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<MessageDto> delete(@PathVariable("id") String id) throws ResourceNotFoundException {
+    public ResponseEntity<MessageDto> delete(@PathVariable("id") Integer id) throws ResourceNotFoundException {
         HistorialEntity historial = historialService.delete(id);
         String message = "historial " + historial.getIdbodegaOr() + "Ha sido Eliminado";
         return ResponseEntity.ok(new MessageDto(HttpStatus.OK, message));

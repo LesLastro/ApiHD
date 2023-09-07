@@ -12,9 +12,9 @@ import javax.persistence.Table;
 public class BodegasEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
     private String nombre;
-    private Long idSite;
+    private Integer idSite;
     private Date fechacreacion;
 
 
@@ -22,7 +22,7 @@ public class BodegasEntity {
     }
 
 
-    public BodegasEntity(Long id, String nombre, Long idSite, Date fechacreacion) {
+    public BodegasEntity(Integer id, String nombre, Integer idSite, Date fechacreacion) {
         this.id = id;
         this.nombre = nombre;
         this.idSite = idSite;
@@ -30,11 +30,11 @@ public class BodegasEntity {
     }
 
 
-    public Long getId() {
+    public Integer getId() {
         return this.id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -46,11 +46,11 @@ public class BodegasEntity {
         this.nombre = nombre;
     }
 
-    public Long getIdSite() {
+    public Integer getIdSite() {
         return this.idSite;
     }
 
-    public void setIdSite(Long idSite) {
+    public void setIdSite(Integer idSite) {
         this.idSite = idSite;
     }
 

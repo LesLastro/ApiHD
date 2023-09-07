@@ -20,7 +20,7 @@ public class HistorialService {
         return historialRepository.findAll();
     }
 
-    public HistorialEntity getOne(String id) throws ResourceNotFoundException {
+    public HistorialEntity getOne(Integer id) throws ResourceNotFoundException {
         return historialRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("not found"));
     }
@@ -34,7 +34,7 @@ public class HistorialService {
         return historialRepository.save(historial);
     }
 
-    public HistorialEntity update(String id, HistorialDTO dto) throws ResourceNotFoundException, AttributeException {
+    public HistorialEntity update(Integer id, HistorialDTO dto) throws ResourceNotFoundException, AttributeException {
         HistorialEntity historial = historialRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No se encontro"));
         /*if (historialRepository.existsByDpi(dto.getDpi()) && historialRepository.findByDpi(dto.getDpi()).get().getId() != id)
@@ -50,7 +50,7 @@ public class HistorialService {
         historial.setFechasolicitud(dto.getFechasolicitud());
         return historialRepository.save(historial);    }
 
-    public HistorialEntity delete(String id) throws ResourceNotFoundException {
+    public HistorialEntity delete(Integer id) throws ResourceNotFoundException {
         HistorialEntity historial = historialRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No se encontro"));
         ;

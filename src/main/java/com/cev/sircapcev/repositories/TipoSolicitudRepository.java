@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.cev.sircapcev.entity.TipoSolicitudEntity;
 
 @Repository
-public interface TipoSolicitudRepository extends JpaRepository<TipoSolicitudEntity, String> {
+public interface TipoSolicitudRepository extends JpaRepository<TipoSolicitudEntity, Integer> {
     boolean existsByNombre(String nombre);
     Optional<TipoSolicitudEntity> findByNombre(String nombre);
     

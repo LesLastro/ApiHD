@@ -12,13 +12,13 @@ import javax.persistence.Table;
 public class HistorialEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private Long idbodegaOr;
-    private Long idbodegaDes;
-    private Long idusuario;
-    private Long idTipoSol;
-    private Long idEquipo;
-    private Long idCuenta;
+    private Integer id;
+    private Integer idbodegaOr;
+    private Integer idbodegaDes;
+    private Integer idusuario;
+    private Integer idTipoSol;
+    private Integer idEquipo;
+    private Integer idCuenta;
     private String estado;
     private String consumible;
     private Date fechasolicitud;
@@ -27,7 +27,7 @@ public class HistorialEntity {
     public HistorialEntity() {
     }
 
-    public HistorialEntity(Long id, Long idbodegaOr, Long idbodegaDes, Long idusuario, Long idTipoSol, Long idEquipo, Long idCuenta, String estado, String consumible, Date fechasolicitud) {
+    public HistorialEntity(Integer id, Integer idbodegaOr, Integer idbodegaDes, Integer idusuario, Integer idTipoSol, Integer idEquipo, Integer idCuenta, String estado, String consumible, Date fechasolicitud) {
         this.id = id;
         this.idbodegaOr = idbodegaOr;
         this.idbodegaDes = idbodegaDes;
@@ -40,59 +40,59 @@ public class HistorialEntity {
         this.fechasolicitud = fechasolicitud;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return this.id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public Long getIdbodegaOr() {
+    public Integer getIdbodegaOr() {
         return this.idbodegaOr;
     }
 
-    public void setIdbodegaOr(Long idbodegaOr) {
+    public void setIdbodegaOr(Integer idbodegaOr) {
         this.idbodegaOr = idbodegaOr;
     }
 
-    public Long getIdbodegaDes() {
+    public Integer getIdbodegaDes() {
         return this.idbodegaDes;
     }
 
-    public void setIdbodegaDes(Long idbodegaDes) {
+    public void setIdbodegaDes(Integer idbodegaDes) {
         this.idbodegaDes = idbodegaDes;
     }
 
-    public Long getIdusuario() {
+    public Integer getIdusuario() {
         return this.idusuario;
     }
 
-    public void setIdusuario(Long idusuario) {
+    public void setIdusuario(Integer idusuario) {
         this.idusuario = idusuario;
     }
 
-    public Long getIdTipoSol() {
+    public Integer getIdTipoSol() {
         return this.idTipoSol;
     }
 
-    public void setIdTipoSol(Long idTipoSol) {
+    public void setIdTipoSol(Integer idTipoSol) {
         this.idTipoSol = idTipoSol;
     }
 
-    public Long getIdEquipo() {
+    public Integer getIdEquipo() {
         return this.idEquipo;
     }
 
-    public void setIdEquipo(Long idEquipo) {
+    public void setIdEquipo(Integer idEquipo) {
         this.idEquipo = idEquipo;
     }
 
-    public Long getIdCuenta() {
+    public Integer getIdCuenta() {
         return this.idCuenta;
     }
 
-    public void setIdCuenta(Long idCuenta) {
+    public void setIdCuenta(Integer idCuenta) {
         this.idCuenta = idCuenta;
     }
 

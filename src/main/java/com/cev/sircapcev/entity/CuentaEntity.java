@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class CuentaEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
     private String nombre;
     private String estatus;
     private Date fechacreacion;
@@ -21,18 +21,18 @@ public class CuentaEntity {
     public CuentaEntity() {
     }
 
-    public CuentaEntity(Long id, String nombre, String estatus, Date fechacreacion) {
+    public CuentaEntity(Integer id, String nombre, String estatus, Date fechacreacion) {
         this.id = id;
         this.nombre = nombre;
         this.estatus = estatus;
         this.fechacreacion = fechacreacion;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return this.id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

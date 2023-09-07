@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 
 
 public class CuentaDTO {
-    private Long id;
+    private Integer id;
     @NotBlank(message = "Ingrese un Nombre") 
     private String nombre;
     @NotBlank(message = "Ingrese Estatus")
@@ -20,18 +20,18 @@ public class CuentaDTO {
     public CuentaDTO() {
     }
 
-    public CuentaDTO(Long id, String nombre, String estatus, Date fechacreacion) {
+    public CuentaDTO(Integer id, String nombre, String estatus, Date fechacreacion) {
         this.id = id;
         this.nombre = nombre;
         this.estatus = estatus;
         this.fechacreacion = fechacreacion;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return this.id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

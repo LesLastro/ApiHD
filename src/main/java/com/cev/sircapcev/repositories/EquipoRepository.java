@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.cev.sircapcev.entity.EquipoEntity;
 
 @Repository
-public interface EquipoRepository extends JpaRepository<EquipoEntity, String> {
+public interface EquipoRepository extends JpaRepository<EquipoEntity, Integer> {
     boolean existsBySerial(String Serial);
     Optional<EquipoEntity> findBySerial(String Serial);
     

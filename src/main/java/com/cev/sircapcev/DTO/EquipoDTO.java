@@ -8,13 +8,13 @@ import javax.validation.constraints.NotNull;
 
 
 public class EquipoDTO {
-    private Long id;
+    private Integer id;
     @NotBlank(message = "Ingrese ServiceTag") 
     private String serial;
     @NotBlank(message = "Ingrese Bodega")
-    private Long idBodega;
+    private Integer idBodega;
     @NotBlank(message = "Ingrese Cuenta")
-    private Long idCuenta;
+    private Integer idCuenta;
     @NotBlank(message = "Ingrese Estado")
     private String estado;
     @NotNull(message = "Ingrese Fecha de Modificacion")
@@ -24,7 +24,7 @@ public class EquipoDTO {
     public EquipoDTO() {
     }
 
-    public EquipoDTO(Long id, String serial, Long idBodega, Long idCuenta, String estado, Date fechaMod) {
+    public EquipoDTO(Integer id, String serial, Integer idBodega, Integer idCuenta, String estado, Date fechaMod) {
         this.id = id;
         this.serial = serial;
         this.idBodega = idBodega;
@@ -35,11 +35,11 @@ public class EquipoDTO {
 
 
 
-    public Long getId() {
+    public Integer getId() {
         return this.id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -51,19 +51,19 @@ public class EquipoDTO {
         this.serial = serial;
     }
 
-    public Long getIdBodega() {
+    public Integer getIdBodega() {
         return this.idBodega;
     }
 
-    public void setIdBodega(Long idBodega) {
+    public void setIdBodega(Integer idBodega) {
         this.idBodega = idBodega;
     }
 
-    public Long getIdCuenta() {
+    public Integer getIdCuenta() {
         return this.idCuenta;
     }
 
-    public void setIdCuenta(Long idCuenta) {
+    public void setIdCuenta(Integer idCuenta) {
         this.idCuenta = idCuenta;
     }
 

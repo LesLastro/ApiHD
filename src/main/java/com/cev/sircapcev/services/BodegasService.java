@@ -20,7 +20,7 @@ public class BodegasService {
         return bodegasRepository.findAll();
     }
 
-    public BodegasEntity getOne(String id) throws ResourceNotFoundException {
+    public BodegasEntity getOne(Integer id) throws ResourceNotFoundException {
         return bodegasRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("not found"));
     }
@@ -34,7 +34,7 @@ public class BodegasService {
         return bodegasRepository.save(bodegas);
     }
 
-    public BodegasEntity update(String id, BodegasDTO dto) throws ResourceNotFoundException, AttributeException {
+    public BodegasEntity update(Integer id, BodegasDTO dto) throws ResourceNotFoundException, AttributeException {
         BodegasEntity bodegas = bodegasRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No se encontro"));
         /*if (bodegasRepository.existsByDpi(dto.getDpi()) && bodegasRepository.findByDpi(dto.getDpi()).get().getId() != id)
@@ -45,7 +45,7 @@ public class BodegasService {
         return bodegasRepository.save(bodegas);
     }
 
-    public BodegasEntity delete(String id) throws ResourceNotFoundException {
+    public BodegasEntity delete(Integer id) throws ResourceNotFoundException {
         BodegasEntity bodegas = bodegasRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No se encontro"));
         ;

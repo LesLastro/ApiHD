@@ -38,7 +38,7 @@ public class PaisController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PaisEntity> getOne(@PathVariable("id") String id) throws ResourceNotFoundException {
+    public ResponseEntity<PaisEntity> getOne(@PathVariable("id") Integer id) throws ResourceNotFoundException {
         return ResponseEntity.ok(paisService.getOne(id));
     }
 
@@ -50,7 +50,7 @@ public class PaisController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<MessageDto> update(@PathVariable("id") String id, @Valid @RequestBody PaisDTO dto)
+    public ResponseEntity<MessageDto> update(@PathVariable("id") Integer id, @Valid @RequestBody PaisDTO dto)
             throws ResourceNotFoundException, AttributeException {
         PaisEntity pais = paisService.update(id, dto);
         String message = "pais " + pais.getNombre() + "Ha sido Actualizado";
@@ -58,7 +58,7 @@ public class PaisController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<MessageDto> delete(@PathVariable("id") String id) throws ResourceNotFoundException {
+    public ResponseEntity<MessageDto> delete(@PathVariable("id") Integer id) throws ResourceNotFoundException {
         PaisEntity pais = paisService.delete(id);
         String message = "pais " + pais.getNombre() + "Ha sido Eliminado";
         return ResponseEntity.ok(new MessageDto(HttpStatus.OK, message));

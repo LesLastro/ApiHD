@@ -10,8 +10,8 @@ import org.springframework.stereotype.Repository;
 import com.cev.sircapcev.entity.HistorialEntity;
 
 @Repository
-public interface HistorialRepository extends JpaRepository<HistorialEntity, String> {
-    boolean existsByIdBodegaOr(Long idBodegaOr);
-    Optional<HistorialEntity> findByIdexistsByIdBodegaOr(Long idBodegaOr);
+public interface HistorialRepository extends JpaRepository<HistorialEntity, Integer> {
+    boolean existsByIdBodegaOr(Integer idBodegaOr);
+    Optional<HistorialEntity> findByIdexistsByIdBodegaOr(Integer idBodegaOr);
     
 }
