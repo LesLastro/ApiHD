@@ -10,17 +10,17 @@ import javax.validation.constraints.NotNull;
 public class HistorialDTO {
     private Integer id;
     @NotBlank(message = "Ingrese una Bodega Origen") 
-    private Integer idBodegaOr;
+    private Integer idbodega_Or;
     @NotBlank(message = "Ingrese una Bodega Destino") 
-    private Integer idbodegaDes;
+    private Integer idbodega_Des;
     @NotBlank(message = "Ingrese su Usuario") 
     private Integer idusuario;
     @NotBlank(message = "Ingrese Tipo de Solicitud") 
-    private Integer idTipoSol;
+    private Integer id_Tipo_Sol;
     @NotBlank(message = "Ingrese una Equipo") 
-    private Integer idEquipo;
+    private Integer id_Equipo;
     @NotBlank(message = "Ingrese una Cuenta") 
-    private Integer idCuenta;
+    private Integer id_Cuenta;
     @NotBlank(message = "Ingrese el Estado") 
     private String estado;
     @NotBlank(message = "Ingrese Consumible") 
@@ -31,15 +31,14 @@ public class HistorialDTO {
     public HistorialDTO() {
     }
 
-
-    public HistorialDTO(Integer id, Integer idBodegaOr, Integer idbodegaDes, Integer idusuario, Integer idTipoSol, Integer idEquipo, Integer idCuenta, String estado, String consumible, Date fechasolicitud) {
+    public HistorialDTO(Integer id, Integer idbodega_Or, Integer idbodega_Des, Integer idusuario, Integer id_Tipo_Sol, Integer id_Equipo, Integer id_Cuenta, String estado, String consumible, Date fechasolicitud) {
         this.id = id;
-        this.idBodegaOr = idBodegaOr;
-        this.idbodegaDes = idbodegaDes;
+        this.idbodega_Or = idbodega_Or;
+        this.idbodega_Des = idbodega_Des;
         this.idusuario = idusuario;
-        this.idTipoSol = idTipoSol;
-        this.idEquipo = idEquipo;
-        this.idCuenta = idCuenta;
+        this.id_Tipo_Sol = id_Tipo_Sol;
+        this.id_Equipo = id_Equipo;
+        this.id_Cuenta = id_Cuenta;
         this.estado = estado;
         this.consumible = consumible;
         this.fechasolicitud = fechasolicitud;
@@ -54,20 +53,20 @@ public class HistorialDTO {
         this.id = id;
     }
 
-    public Integer getIdBodegaOr() {
-        return this.idBodegaOr;
+    public Integer getIdbodega_Or() {
+        return this.idbodega_Or;
     }
 
-    public void setIdBodegaOr(Integer idBodegaOr) {
-        this.idBodegaOr = idBodegaOr;
+    public void setIdbodega_Or(Integer idbodega_Or) {
+        this.idbodega_Or = idbodega_Or;
     }
 
-    public Integer getIdbodegaDes() {
-        return this.idbodegaDes;
+    public Integer getIdbodega_Des() {
+        return this.idbodega_Des;
     }
 
-    public void setIdbodegaDes(Integer idbodegaDes) {
-        this.idbodegaDes = idbodegaDes;
+    public void setIdbodega_Des(Integer idbodega_Des) {
+        this.idbodega_Des = idbodega_Des;
     }
 
     public Integer getIdusuario() {
@@ -78,28 +77,28 @@ public class HistorialDTO {
         this.idusuario = idusuario;
     }
 
-    public Integer getIdTipoSol() {
-        return this.idTipoSol;
+    public Integer getId_Tipo_Sol() {
+        return this.id_Tipo_Sol;
     }
 
-    public void setIdTipoSol(Integer idTipoSol) {
-        this.idTipoSol = idTipoSol;
+    public void setId_Tipo_Sol(Integer id_Tipo_Sol) {
+        this.id_Tipo_Sol = id_Tipo_Sol;
     }
 
-    public Integer getIdEquipo() {
-        return this.idEquipo;
+    public Integer getId_Equipo() {
+        return this.id_Equipo;
     }
 
-    public void setIdEquipo(Integer idEquipo) {
-        this.idEquipo = idEquipo;
+    public void setId_Equipo(Integer id_Equipo) {
+        this.id_Equipo = id_Equipo;
     }
 
-    public Integer getIdCuenta() {
-        return this.idCuenta;
+    public Integer getId_Cuenta() {
+        return this.id_Cuenta;
     }
 
-    public void setIdCuenta(Integer idCuenta) {
-        this.idCuenta = idCuenta;
+    public void setId_Cuenta(Integer id_Cuenta) {
+        this.id_Cuenta = id_Cuenta;
     }
 
     public String getEstado() {

@@ -18,7 +18,7 @@ import javax.persistence.Table;
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
     private String username;
     private String email;
     private String password;
@@ -33,7 +33,7 @@ public class UserEntity {
     public UserEntity() {
     }
 
-    public UserEntity(Long id, String username, String email, String password, List<RoleEntity> roles) {
+    public UserEntity(Integer id, String username, String email, String password, List<RoleEntity> roles) {
         this.id = id;
         this.username = username;
         this.email = email;
@@ -42,11 +42,11 @@ public class UserEntity {
     }
 
 
-    public Long getId() {
+    public Integer getId() {
         return this.id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

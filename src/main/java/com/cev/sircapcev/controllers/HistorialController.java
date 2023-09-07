@@ -45,7 +45,7 @@ public class HistorialController {
     @PostMapping
     public ResponseEntity<MessageDto> save(@Valid @RequestBody HistorialDTO dto) throws AttributeException {
         HistorialEntity historial = historialService.save(dto);
-        String message = "historial " + historial.getIdbodegaOr() + "Ha sido creado";
+        String message = "historial " + historial.getIdbodega_Or() + "Ha sido creado";
         return ResponseEntity.ok(new MessageDto(HttpStatus.OK, message));
     }
 
@@ -53,14 +53,14 @@ public class HistorialController {
     public ResponseEntity<MessageDto> update(@PathVariable("id") Integer id, @Valid @RequestBody HistorialDTO dto)
             throws ResourceNotFoundException, AttributeException {
         HistorialEntity historial = historialService.update(id, dto);
-        String message = "historial " + historial.getIdbodegaOr() + "Ha sido Actualizado";
+        String message = "historial " + historial.getIdbodega_Or() + "Ha sido Actualizado";
         return ResponseEntity.ok(new MessageDto(HttpStatus.OK, message));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<MessageDto> delete(@PathVariable("id") Integer id) throws ResourceNotFoundException {
         HistorialEntity historial = historialService.delete(id);
-        String message = "historial " + historial.getIdbodegaOr() + "Ha sido Eliminado";
+        String message = "historial " + historial.getIdbodega_Or() + "Ha sido Eliminado";
         return ResponseEntity.ok(new MessageDto(HttpStatus.OK, message));
     }
 }

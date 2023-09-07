@@ -13,12 +13,12 @@ public class HistorialEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private Integer idbodegaOr;
-    private Integer idbodegaDes;
+    private Integer idbodega_Or;
+    private Integer idbodega_Des;
     private Integer idusuario;
-    private Integer idTipoSol;
-    private Integer idEquipo;
-    private Integer idCuenta;
+    private Integer id_Tipo_Sol;
+    private Integer id_Equipo;
+    private Integer id_Cuenta;
     private String estado;
     private String consumible;
     private Date fechasolicitud;
@@ -27,14 +27,14 @@ public class HistorialEntity {
     public HistorialEntity() {
     }
 
-    public HistorialEntity(Integer id, Integer idbodegaOr, Integer idbodegaDes, Integer idusuario, Integer idTipoSol, Integer idEquipo, Integer idCuenta, String estado, String consumible, Date fechasolicitud) {
+    public HistorialEntity(Integer id, Integer idbodega_Or, Integer idbodega_Des, Integer idusuario, Integer id_Tipo_Sol, Integer id_Equipo, Integer id_Cuenta, String estado, String consumible, Date fechasolicitud) {
         this.id = id;
-        this.idbodegaOr = idbodegaOr;
-        this.idbodegaDes = idbodegaDes;
+        this.idbodega_Or = idbodega_Or;
+        this.idbodega_Des = idbodega_Des;
         this.idusuario = idusuario;
-        this.idTipoSol = idTipoSol;
-        this.idEquipo = idEquipo;
-        this.idCuenta = idCuenta;
+        this.id_Tipo_Sol = id_Tipo_Sol;
+        this.id_Equipo = id_Equipo;
+        this.id_Cuenta = id_Cuenta;
         this.estado = estado;
         this.consumible = consumible;
         this.fechasolicitud = fechasolicitud;
@@ -48,20 +48,20 @@ public class HistorialEntity {
         this.id = id;
     }
 
-    public Integer getIdbodegaOr() {
-        return this.idbodegaOr;
+    public Integer getIdbodega_Or() {
+        return this.idbodega_Or;
     }
 
-    public void setIdbodegaOr(Integer idbodegaOr) {
-        this.idbodegaOr = idbodegaOr;
+    public void setIdbodega_Or(Integer idbodega_Or) {
+        this.idbodega_Or = idbodega_Or;
     }
 
-    public Integer getIdbodegaDes() {
-        return this.idbodegaDes;
+    public Integer getIdbodega_Des() {
+        return this.idbodega_Des;
     }
 
-    public void setIdbodegaDes(Integer idbodegaDes) {
-        this.idbodegaDes = idbodegaDes;
+    public void setIdbodega_Des(Integer idbodega_Des) {
+        this.idbodega_Des = idbodega_Des;
     }
 
     public Integer getIdusuario() {
@@ -72,28 +72,28 @@ public class HistorialEntity {
         this.idusuario = idusuario;
     }
 
-    public Integer getIdTipoSol() {
-        return this.idTipoSol;
+    public Integer getId_Tipo_Sol() {
+        return this.id_Tipo_Sol;
     }
 
-    public void setIdTipoSol(Integer idTipoSol) {
-        this.idTipoSol = idTipoSol;
+    public void setId_Tipo_Sol(Integer id_Tipo_Sol) {
+        this.id_Tipo_Sol = id_Tipo_Sol;
     }
 
-    public Integer getIdEquipo() {
-        return this.idEquipo;
+    public Integer getId_Equipo() {
+        return this.id_Equipo;
     }
 
-    public void setIdEquipo(Integer idEquipo) {
-        this.idEquipo = idEquipo;
+    public void setId_Equipo(Integer id_Equipo) {
+        this.id_Equipo = id_Equipo;
     }
 
-    public Integer getIdCuenta() {
-        return this.idCuenta;
+    public Integer getId_Cuenta() {
+        return this.id_Cuenta;
     }
 
-    public void setIdCuenta(Integer idCuenta) {
-        this.idCuenta = idCuenta;
+    public void setId_Cuenta(Integer id_Cuenta) {
+        this.id_Cuenta = id_Cuenta;
     }
 
     public String getEstado() {
@@ -120,5 +120,7 @@ public class HistorialEntity {
         this.fechasolicitud = fechasolicitud;
     }
 
- }   
+}
+
+   
 

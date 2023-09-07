@@ -26,9 +26,9 @@ public class HistorialService {
     }
 
     public HistorialEntity save(HistorialDTO dto) throws AttributeException {
-        if (historialRepository.existsByIdBodegaOr(dto.getIdBodegaOr()))
+        if (historialRepository.existsById(dto.getId()))
             throw new AttributeException("Ya existe el Historial");
-        HistorialEntity historial = new HistorialEntity(dto.getId(), dto.getIdBodegaOr(), dto.getIdbodegaDes(), dto.getIdusuario(), dto.getIdTipoSol(), dto.getIdEquipo(), dto.getIdCuenta(), dto.getEstado(), dto.getConsumible(), dto.getFechasolicitud()
+        HistorialEntity historial = new HistorialEntity(dto.getId(), dto.getIdbodega_Or(), dto.getIdbodega_Des(), dto.getIdusuario(), dto.getId_Tipo_Sol(), dto.getId_Equipo(), dto.getId_Cuenta(), dto.getEstado(), dto.getConsumible(), dto.getFechasolicitud()
         );
                 
         return historialRepository.save(historial);
@@ -39,12 +39,12 @@ public class HistorialService {
                 .orElseThrow(() -> new ResourceNotFoundException("No se encontro"));
         /*if (historialRepository.existsByDpi(dto.getDpi()) && historialRepository.findByDpi(dto.getDpi()).get().getId() != id)
             throw new AttributeException("dpi already in use");*/
-        historial.setIdbodegaOr(dto.getIdBodegaOr());
-        historial.setIdbodegaDes(dto.getIdbodegaDes());
+        historial.setIdbodega_Or(dto.getIdbodega_Or());
+        historial.setIdbodega_Des(dto.getIdbodega_Des());
         historial.setIdusuario(dto.getIdusuario());
-        historial.setIdTipoSol(dto.getIdTipoSol());
-        historial.setIdEquipo(dto.getIdEquipo());
-        historial.setIdCuenta(dto.getIdCuenta());
+        historial.setId_Tipo_Sol(dto.getId_Tipo_Sol());
+        historial.setId_Equipo(dto.getId_Equipo());
+        historial.setId_Cuenta(dto.getId_Cuenta());
         historial.setEstado(dto.getEstado());
         historial.setConsumible(dto.getConsumible());
         historial.setFechasolicitud(dto.getFechasolicitud());

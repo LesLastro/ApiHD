@@ -9,8 +9,6 @@ public class RoleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    // El campo 'name' representa el nombre del rol
     private String name;
 
     @ManyToMany(mappedBy = "roles")

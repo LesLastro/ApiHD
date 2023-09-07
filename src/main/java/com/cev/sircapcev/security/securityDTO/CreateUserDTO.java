@@ -9,7 +9,7 @@ import javax.validation.constraints.NotBlank;
 
 
 public class CreateUserDTO {
-    private long id;
+    private Integer id;
     @NotBlank(message = "Username is mandatory")
     private String username;
 
@@ -26,7 +26,7 @@ public class CreateUserDTO {
     public CreateUserDTO() {
     }
 
-    public CreateUserDTO(long id, String username, String email, String password, List<String> roles) {
+    public CreateUserDTO(Integer id, String username, String email, String password, List<String> roles) {
         this.id = id;
         this.username = username;
         this.email = email;
@@ -34,11 +34,11 @@ public class CreateUserDTO {
         this.roles = roles;
     }
 
-    public long getId() {
+    public Integer getId() {
         return this.id;
     }
 
-    public void setId(long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
