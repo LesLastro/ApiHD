@@ -13,7 +13,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.cev.sircapcev.global.exceptions.AttributeException;
-import com.cev.sircapcev.global.utils.Operations;
 import com.cev.sircapcev.security.jwt.JwtProvider;
 import com.cev.sircapcev.security.securityDTO.CreateUserDTO;
 import com.cev.sircapcev.security.securityDTO.JwtTokenDTO;
@@ -76,9 +75,9 @@ public class UserEntityService {
     
 
     private UserEntity mapUserFromDto(CreateUserDTO dto) {
-        int id = Operations.autoIncrement(userEntityRepository.findAll());
+        //int id = Operations.autoIncrement(userEntityRepository.findAll());
         String password = passwordEncoder.encode(dto.getPassword());
         List<RoleEnum> roles = dto.getRoles().stream().map(rol -> RoleEnum.valueOf(rol)).collect(Collectors.toList());
-        return new UserEntity(id, dto.getUsername(), dto.getEmail(), password,roles);       
+        return new UserEntity(dto.getId(), dto.getUsername(), dto.getEmail(), password,roles);       
     }
 }

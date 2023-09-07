@@ -8,7 +8,6 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,54 +18,49 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cev.sircapcev.DTO.AsignacionDTO;
-import com.cev.sircapcev.entity.AsignacionEntity;
+import com.cev.sircapcev.DTO.HistorialDTO;
+import com.cev.sircapcev.entity.HistorialEntity;
 import com.cev.sircapcev.global.dto.MessageDto;
 import com.cev.sircapcev.global.exceptions.AttributeException;
 import com.cev.sircapcev.global.exceptions.ResourceNotFoundException;
-import com.cev.sircapcev.services.AsignacionService;
+import com.cev.sircapcev.services.HistorialService;
 
 @RestController
-@RequestMapping("/asignacion")
+@RequestMapping("/historial")
 @CrossOrigin
-public class AsignacionController {
+public class HistorialController {
     @Autowired
-    AsignacionService asignacionService;
+    HistorialService historialService;
 
-    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @GetMapping
-    public ResponseEntity<List<AsignacionEntity>> getAll() {
-        return ResponseEntity.ok(asignacionService.getAll());
+    public ResponseEntity<List<HistorialEntity>> getAll() {
+        return ResponseEntity.ok(historialService.getAll());
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN', 'ROLE_USER')")
     @GetMapping("/{id}")
-    public ResponseEntity<AsignacionEntity> getOne(@PathVariable("id") String id) throws ResourceNotFoundException {
-        return ResponseEntity.ok(asignacionService.getOne(id));
+    public ResponseEntity<HistorialEntity> getOne(@PathVariable("id") String id) throws ResourceNotFoundException {
+        return ResponseEntity.ok(historialService.getOne(id));
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
-    public ResponseEntity<MessageDto> save(@Valid @RequestBody AsignacionDTO dto) throws AttributeException {
-        AsignacionEntity asignacion = asignacionService.save(dto);
-        String message = "Asignacion " + asignacion.getDpi() + " have been created";
+    public ResponseEntity<MessageDto> save(@Valid @RequestBody HistorialDTO dto) throws AttributeException {
+        HistorialEntity historial = historialService.save(dto);
+        String message = "historial " + historial.getIdbodegaOr() + "Ha sido creado";
         return ResponseEntity.ok(new MessageDto(HttpStatus.OK, message));
     }
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PutMapping("/{id}")
-    public ResponseEntity<MessageDto> update(@PathVariable("id") String id, @Valid @RequestBody AsignacionDTO dto)
+    public ResponseEntity<MessageDto> update(@PathVariable("id") String id, @Valid @RequestBody HistorialDTO dto)
             throws ResourceNotFoundException, AttributeException {
-        AsignacionEntity asignacion = asignacionService.update(id, dto);
-        String message = "Asignacion " + asignacion.getDpi() + " have been updated";
+        HistorialEntity historial = historialService.update(id, dto);
+        String message = "historial " + historial.getIdbodegaOr() + "Ha sido Actualizado";
         return ResponseEntity.ok(new MessageDto(HttpStatus.OK, message));
     }
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @DeleteMapping("/{id}")
     public ResponseEntity<MessageDto> delete(@PathVariable("id") String id) throws ResourceNotFoundException {
-        AsignacionEntity asignacion = asignacionService.delete(id);
-        String message = "Asignacion " + asignacion.getDpi() + " have been deleted";
+        HistorialEntity historial = historialService.delete(id);
+        String message = "historial " + historial.getIdbodegaOr() + "Ha sido Eliminado";
         return ResponseEntity.ok(new MessageDto(HttpStatus.OK, message));
     }
 }
