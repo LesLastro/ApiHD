@@ -1,5 +1,5 @@
 package com.hd.apihd.entity;
-import java.util.Date;
+import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,13 +16,13 @@ public class CuentaEntity {
     private Integer id;
     private String nombre;
     private String estatus;
-    private Date fechacreacion;
+    private LocalDate fechacreacion;
 
 
     public CuentaEntity() {
     }
 
-    public CuentaEntity(Integer id, String nombre, String estatus, Date fechacreacion) {
+    public CuentaEntity(Integer id, String nombre, String estatus, LocalDate fechacreacion) {
         this.id = id;
         this.nombre = nombre;
         this.estatus = estatus;
@@ -53,11 +53,11 @@ public class CuentaEntity {
         this.estatus = estatus;
     }
 
-    public Date getFechacreacion() {
+    public LocalDate getFechacreacion() {
         return this.fechacreacion;
     }
 
-    public void setFechacreacion(Date fechacreacion) {
+    public void setFechacreacion(LocalDate fechacreacion) {
         this.fechacreacion = fechacreacion;
     }
 

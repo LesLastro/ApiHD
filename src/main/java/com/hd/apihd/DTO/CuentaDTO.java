@@ -1,10 +1,8 @@
 package com.hd.apihd.DTO;
 
 
-import java.util.Date;
-
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+// import jakarta.validation.constraints.NotNull;
 
 
 
@@ -14,18 +12,18 @@ public class CuentaDTO {
     private String nombre;
     @NotBlank(message = "Ingrese Estatus")
     private String estatus;
-    @NotNull(message = "Ingrese Fecha de Creacion")
-    private Date fechacreacion;
+  //  @NotNull(message = "Ingrese Fecha de Creacion")
+   // private Date fechacreacion;
 
 
     public CuentaDTO() {
     }
 
-    public CuentaDTO(Integer id, String nombre, String estatus, Date fechacreacion) {
+    public CuentaDTO(Integer id, String nombre, String estatus) {
         this.id = id;
         this.nombre = nombre;
         this.estatus = estatus;
-        this.fechacreacion = fechacreacion;
+    //    this.fechacreacion = fechacreacion;
     }
 
     public Integer getId() {
@@ -52,12 +50,12 @@ public class CuentaDTO {
         this.estatus = estatus;
     }
 
-    public Date getFechacreacion() {
-        return this.fechacreacion;
+   /*  public Date getFechacreacion() {
+       return this.fechacreacion;
     }
 
     public void setFechacreacion(Date fechacreacion) {
-        this.fechacreacion = fechacreacion;
+    this.fechacreacion = fechacreacion;
     }
-    
+    */
 }

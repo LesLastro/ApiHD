@@ -52,7 +52,7 @@ public class BodegasController {
         return ResponseEntity.ok(new MessageDto(HttpStatus.OK, message));
     }
 
-    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
+    @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
     @PutMapping("/{id}")
     public ResponseEntity<MessageDto> update(@PathVariable("id") Integer id, @Valid @RequestBody BodegasDTO dto)
             throws ResourceNotFoundException, AttributeException {

@@ -1,5 +1,7 @@
 package com.hd.apihd.services;
 
+
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,20 +30,22 @@ public class CuentaService {
     public CuentaEntity save(CuentaDTO dto) throws AttributeException {
         if (cuentaRepository.existsByNombre(dto.getNombre()))
             throw new AttributeException("Ya existe la Cuenta");
-        CuentaEntity cuenta = new CuentaEntity(dto.getId(), dto.getNombre(), dto.getEstatus(), dto.getFechacreacion()
+            LocalDate fecha = LocalDate.now();
+        CuentaEntity cuenta = new CuentaEntity(dto.getId(), dto.getNombre(), dto.getEstatus(), fecha
         );
                 
         return cuentaRepository.save(cuenta);
     }
 
     public CuentaEntity update(Integer id, CuentaDTO dto) throws ResourceNotFoundException, AttributeException {
+        LocalDate fecha = LocalDate.now();
         CuentaEntity cuenta = cuentaRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No se encontro"));
         /*if (cuentaRepository.existsByDpi(dto.getDpi()) && cuentaRepository.findByDpi(dto.getDpi()).get().getId() != id)
             throw new AttributeException("dpi already in use");*/
         cuenta.setNombre(dto.getNombre());
         cuenta.setEstatus(dto.getEstatus());
-        cuenta.setFechacreacion(dto.getFechacreacion());
+        cuenta.setFechacreacion(fecha);
         return cuentaRepository.save(cuenta);
     }
 
